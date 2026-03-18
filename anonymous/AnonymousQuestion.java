@@ -20,7 +20,6 @@ public class AnonymousQuestion {
         this.votes = 0;
         this.answered = false;
 
-        // Initialize voters list
         voters = new ArrayList<>();
     }
 

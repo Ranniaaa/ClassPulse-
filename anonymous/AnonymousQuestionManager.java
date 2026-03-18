@@ -6,12 +6,10 @@ public class AnonymousQuestionManager {
 
     private ArrayList<AnonymousQuestion> questions;
 
-    // Constructor
     public AnonymousQuestionManager() {
         questions = new ArrayList<>();
     }
 
-    // Add question
     public void addQuestion(int id, String content) {
         AnonymousQuestion newQuestion =
                 new AnonymousQuestion(id, content);
@@ -19,12 +17,10 @@ public class AnonymousQuestionManager {
         questions.add(newQuestion);
     }
 
-    // Get all questions
     public ArrayList<AnonymousQuestion> getQuestions() {
         return questions;
     }
 
-    // Find question (using Exception)
     public AnonymousQuestion findQuestionById(int id)
             throws QuestionNotFoundException {
 
@@ -38,7 +34,6 @@ public class AnonymousQuestionManager {
                 "Question with ID " + id + " not found.");
     }
 
-    // Upvote question
     public void upvoteQuestion(int id, String studentId)
             throws QuestionNotFoundException,
                    DuplicateVoteException {
@@ -47,7 +42,6 @@ public class AnonymousQuestionManager {
         q.upvote(studentId);
     }
 
-    // Mark question as answered
     public void markQuestionAsAnswered(int id)
             throws QuestionNotFoundException {
 
