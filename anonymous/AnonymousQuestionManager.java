@@ -4,48 +4,65 @@ import java.util.ArrayList;
 
 public class AnonymousQuestionManager {
 
-    // قائمة لتخزين جميع الأسئلة
+    // List that stores all questions
     private ArrayList<AnonymousQuestion> questions;
 
     // Constructor
     public AnonymousQuestionManager() {
         questions = new ArrayList<>();
+        // Initialize the ArrayList when the manager is created
     }
 
-    // إضافة سؤال جديد
+    // Add a new question
     public void addQuestion(int id, String content) {
         AnonymousQuestion newQuestion = new AnonymousQuestion(id, content);
+        // Create a new question object
+
         questions.add(newQuestion);
+        // Add the question to the list
     }
 
-    // إرجاع جميع الأسئلة
+    // Return all questions
     public ArrayList<AnonymousQuestion> getQuestions() {
         return questions;
+        // Return the full list
     }
 
-    // البحث عن سؤال حسب id
+    // Find a question by its ID
     public AnonymousQuestion findQuestionById(int id) {
         for (AnonymousQuestion q : questions) {
+            // Loop through all questions
+
             if (q.getId() == id) {
+                // Check if the ID matches
+
                 return q;
+                // Return the found question
             }
         }
-        return null; // إذا لم يتم العثور عليه
+        return null;
+        // Return null if not found
     }
 
-    // عمل upvote لسؤال معين
+    // Upvote a specific question
     public void upvoteQuestion(int id) {
         AnonymousQuestion q = findQuestionById(id);
+        // Search for the question
+
         if (q != null) {
             q.upvote();
+            // Increase votes if the question exists
         }
     }
 
-    // تحديد سؤال كمجاب عنه
+    // Mark a question as answered
     public void markQuestionAsAnswered(int id) {
         AnonymousQuestion q = findQuestionById(id);
+        // Search for the question
+
         if (q != null) {
             q.markAsAnswered();
+            // Change status to answered
         }
     }
 }
