@@ -1,81 +1,61 @@
-package anonymous; 
-// This line defines the package name.
-// It must match the folder name exactly.
+package anonymous;
 
-public class AnonymousQuestion { 
-// This class represents the blueprint of a question.
+import java.util.ArrayList;
 
-    private int id; 
-    // Unique identifier for each question.
+public class AnonymousQuestion {
 
-    private String content; 
-    // The text content of the question.
+    private int id;
+    private String content;
+    private int votes;
+    private boolean answered;
 
-    private int votes; 
-    // Number of upvotes the question received.
+    // List to store students who voted
+    private ArrayList<String> voters;
 
-    private boolean answered; 
-    // Indicates whether the question has been answered (true = answered).
-
-    // -------------------------
     // Constructor
-    // -------------------------
-
     public AnonymousQuestion(int id, String content) {
-        // Constructor used to create a new question object.
 
         this.id = id;
-        // Assign the parameter value to the class variable.
-
         this.content = content;
-        // Store the question text.
-
         this.votes = 0;
-        // When created, the question starts with 0 votes.
-
         this.answered = false;
-        // When created, the question is not answered yet.
+
+        // Initialize voters list
+        voters = new ArrayList<>();
     }
 
-    // -------------------------
-    // Methods
-    // -------------------------
+    // Upvote with duplicate prevention
+    public void upvote(String studentId)
+            throws DuplicateVoteException {
 
-    public void upvote() {
-        // This method increases the number of votes.
+        if (voters.contains(studentId)) {
+            throw new DuplicateVoteException(
+                    "Student already voted.");
+        }
 
         votes++;
-        // Increment votes by 1.
+        voters.add(studentId);
     }
 
+    // Mark as answered
     public void markAsAnswered() {
-        // This method marks the question as answered.
-
         answered = true;
-        // Change status to answered.
     }
 
-    // -------------------------
     // Getters
-    // -------------------------
-
     public int getId() {
         return id;
-        // Returns the question ID.
     }
 
     public String getContent() {
         return content;
-        // Returns the question content.
     }
 
     public int getVotes() {
         return votes;
-        // Returns the number of votes.
     }
 
     public boolean isAnswered() {
         return answered;
-        // Returns whether the question is answered.
     }
 }
