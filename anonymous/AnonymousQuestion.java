@@ -1,40 +1,40 @@
 package anonymous; 
-// هذا السطر يحدد أن هذا الكلاس ينتمي إلى folder اسمو anonymous
-// لازم يكون نفس اسم الفولدر بالضبط
+// This line defines the package name.
+// It must match the folder name exactly.
 
 public class AnonymousQuestion { 
-// تعريف الكلاس (الـ blueprint تاع السؤال)
+// This class represents the blueprint of a question.
 
     private int id; 
-    // رقم خاص بكل سؤال (معرف فريد)
+    // Unique identifier for each question.
 
     private String content; 
-    // نص السؤال الذي يكتبه الطالب
+    // The text content of the question.
 
     private int votes; 
-    // عدد الأصوات (upvotes) التي حصل عليها السؤال
+    // Number of upvotes the question received.
 
     private boolean answered; 
-    // هل تم الرد على السؤال أم لا (true = تم الرد)
+    // Indicates whether the question has been answered (true = answered).
 
     // -------------------------
     // Constructor
     // -------------------------
 
     public AnonymousQuestion(int id, String content) {
-        // هذا constructor يُستعمل لإنشاء سؤال جديد
+        // Constructor used to create a new question object.
 
         this.id = id;
-        // نربط المتغير الداخلي بالقيمة المرسلة
+        // Assign the parameter value to the class variable.
 
         this.content = content;
-        // تخزين نص السؤال
+        // Store the question text.
 
         this.votes = 0;
-        // عند إنشاء السؤال يبدأ عدد الأصوات بـ 0
+        // When created, the question starts with 0 votes.
 
         this.answered = false;
-        // عند الإنشاء السؤال لم يتم الرد عليه بعد
+        // When created, the question is not answered yet.
     }
 
     // -------------------------
@@ -42,40 +42,40 @@ public class AnonymousQuestion {
     // -------------------------
 
     public void upvote() {
-        // هذه الدالة تزيد عدد الأصوات
+        // This method increases the number of votes.
 
         votes++;
-        // زيادة vote واحدة
+        // Increment votes by 1.
     }
 
     public void markAsAnswered() {
-        // هذه الدالة تستعمل عندما يرد الأستاذ على السؤال
+        // This method marks the question as answered.
 
         answered = true;
-        // تغيير الحالة إلى "تم الرد"
+        // Change status to answered.
     }
 
     // -------------------------
-    // Getters (للاستعمال لاحقاً في الواجهة أو النظام)
+    // Getters
     // -------------------------
 
     public int getId() {
         return id;
-        // إرجاع رقم السؤال
+        // Returns the question ID.
     }
 
     public String getContent() {
         return content;
-        // إرجاع نص السؤال
+        // Returns the question content.
     }
 
     public int getVotes() {
         return votes;
-        // إرجاع عدد الأصوات
+        // Returns the number of votes.
     }
 
     public boolean isAnswered() {
         return answered;
-        // إرجاع حالة السؤال (تم الرد أو لا)
+        // Returns whether the question is answered.
     }
 }
