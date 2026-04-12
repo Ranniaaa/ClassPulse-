@@ -1,0 +1,10 @@
+Ali,100
+Sara,120
+Yacine,90
+Lina,110
+Amira,95
+Omar,85
+Khaled,75
+Nadia,105
+Sofiane,88
+Malak,115
