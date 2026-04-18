@@ -127,4 +127,8 @@ public class GamificationEngine {
         }
         return result;
     }
+
+    public Map<String, Integer> getStudentTotalPoints() {
+        return studentTotalPoints;
+    }
 }
